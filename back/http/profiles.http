@@ -1,0 +1,36 @@
+### Register Celeb
+POST {{host}}/users
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+{
+    "user": {
+        "email": "celeb_{{EMAIL}}",
+        "password": "{{PASSWORD}}",
+        "username": "celeb_{{USERNAME}}"
+    }
+}
+
+### Profile
+GET {{host}}/profiles/celeb_{{username}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Follow Profile
+POST {{host}}/profiles/celeb_{{username}}/follow
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+{
+    "user": {
+        "email": "{{EMAIL}}"
+    }
+}
+
+### Unfollow Profile
+DELETE {{host}}/profiles/celeb_{{username}}/follow
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}

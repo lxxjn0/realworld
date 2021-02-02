@@ -1,0 +1,4 @@
+### All Tags
+GET {{host}}/tags
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest

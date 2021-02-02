@@ -1,0 +1,107 @@
+### Create Article
+POST {{host}}/articles
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+{
+  "article": {
+    "title": "How to train your dragon",
+    "description": "Ever wonder how?",
+    "body": "Very carefully.",
+    "tagList": [
+      "dragons",
+      "training"
+    ]
+  }
+}
+
+### Feed
+GET {{host}}/articles/feed
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### All Articles /// with auth는 Postman 참고
+GET {{host}}/articles
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Articles by Author /// with auth는 Postman 참고
+GET {{host}}/articles?author={{username}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Articles Favorited by Username /// with auth는 Postman 참고
+GET {{host}}/articles?favorited={{username}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Single Article by slug
+GET {{host}}/articles/{{slug}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Articles by Tag
+GET {{host}}/articles?tag={{tag}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Update Article
+PUT {{host}}/articles/{{slug}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+{
+  "article": {
+    "body": "With two hands"
+  }
+}
+
+### Favorite Article
+POST {{host}}/articles/{{slug}}/favorite
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Unfavorite Article
+DELETE {{host}}/articles/{{slug}}/favorite
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Create Comment for Article
+POST {{host}}/articles/{{slug}}/comments
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+{
+  "comment": {
+    "body": "Thank you so much!"
+  }
+}
+
+### All Comments for Article
+GET {{host}}/articles/{{slug}}/comments
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Delete Comment for Article
+DELETE {{host}}/articles/{{slug}}/comments/{{commentId}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Delete Article
+DELETE {{host}}/articles/{{slug}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}

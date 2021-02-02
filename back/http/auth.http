@@ -1,0 +1,42 @@
+### Register
+POST {{host}}/users
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+{
+    "user": {
+        "email": "{{EMAIL}}",
+        "password": "{{PASSWORD}}",
+        "username": "{{USERNAME}}"
+    }
+}
+
+### Login /// with token은 Postman 참고
+POST {{host}}/users/login
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+{
+    "user": {
+        "email": "{{EMAIL}}",
+        "password": "{{PASSWORD}}"
+    }
+}
+
+### Current User
+GET {{host}}/user
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+### Update User
+PUT {{host}}/user
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+Authorization: Token {{token}}
+
+{
+    "user": {
+        "email": "{{EMAIL}}"
+    }
+}

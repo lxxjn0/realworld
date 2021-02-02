@@ -1,0 +1,19 @@
+### All Articles
+GET {{host}}/articles
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+### Articles by Author
+GET {{host}}/articles?author={{username}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+### Articles Favorited by Username
+GET {{host}}/articles?favorited={{username}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+### Articles by Tag
+GET {{host}}/articles?tag={{tag}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
