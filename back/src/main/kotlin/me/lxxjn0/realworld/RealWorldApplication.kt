@@ -1,11 +1,11 @@
-package me.lxxjn0.back
+package me.lxxjn0.realworld
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class BackApplication
+class RealWorldApplication
 
 fun main(args: Array<String>) {
-    runApplication<BackApplication>(*args)
+    runApplication<RealWorldApplication>(*args)
 }
