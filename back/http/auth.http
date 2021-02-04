@@ -5,9 +5,9 @@ X-Requested-With: XMLHttpRequest
 
 {
     "user": {
-        "email": "{{EMAIL}}",
-        "password": "{{PASSWORD}}",
-        "username": "{{USERNAME}}"
+        "email": "{{email}}",
+        "password": "{{password}}",
+        "username": "{{username}}"
     }
 }
 
@@ -18,8 +18,8 @@ X-Requested-With: XMLHttpRequest
 
 {
     "user": {
-        "email": "{{EMAIL}}",
-        "password": "{{PASSWORD}}"
+        "email": "{{email}}",
+        "password": "{{password}}"
     }
 }
 
@@ -37,6 +37,8 @@ Authorization: Token {{token}}
 
 {
     "user": {
-        "email": "{{EMAIL}}"
+        "email": "{{update-email}}",
+        "bio": "{{update-bio}}",
+        "image": "{{update-image}}"
     }
 }
