@@ -1,16 +1,31 @@
-### Profile
+### Get Profile - 프로필 조회
+### Response : Profile
 GET {{host}}/profiles/{{username}}
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest
 Authorization: Token {{token}}
 
-### Follow Profile
+
+
+### Get Profile (no authentication) - 프로필 조회
+### Response : Profile
+GET {{host}}/profiles/{{username}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+
+
+### Follow Profile - 팔로우
+### Response : Profile
 POST {{host}}/profiles/{{username}}/follow
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest
 Authorization: Token {{token}}
 
-### Unfollow Profile
+
+
+### Unfollow Profile - 언팔로우
+### Response : Profile
 DELETE {{host}}/profiles/{{username}}/follow
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest

@@ -1,19 +1,45 @@
-### All Articles
+### List Articles - 게시글 전체 조회
+### Response : Articles
 GET {{host}}/articles
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest
 
-### Articles by Author
+
+
+### List Articles by Author - 해당 작가로 게시글 필터링
+### Response : Articles
 GET {{host}}/articles?author={{username}}
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest
 
-### Articles Favorited by Username
+
+
+### List Articles Favorited by Username - 해당 사용자가 좋아요를 누른 게시글 필터링
+### Response : Articles
 GET {{host}}/articles?favorited={{username}}
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest
 
-### Articles by Tag
+
+
+### List Articles by Tag - 해당 태그로 게시글 필터링
+### Response : Articles
 GET {{host}}/articles?tag={{tag}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+
+
+### List Articles by limit - 해당 값만큼 게시글 조회
+### Response : Articles
+GET {{host}}/articles?limit={{limit}}
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+
+
+### List Articles by offset and limit - offset만큼 건너뛰고 limit 만큼의 게시글 조회
+### Response : Articles
+GET {{host}}/articles?offset={{offset}}&limit={{limit}}
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest

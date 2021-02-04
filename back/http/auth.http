@@ -1,4 +1,20 @@
-### Register
+### Login - 로그인
+### Response : User
+POST {{host}}/users/login
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+{
+    "user": {
+        "email": "{{email}}",
+        "password": "{{password}}"
+    }
+}
+
+
+
+### Register - 회원가입
+### Response : User
 POST {{host}}/users
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest
@@ -11,25 +27,19 @@ X-Requested-With: XMLHttpRequest
     }
 }
 
-### Login /// with token은 Postman 참고
-POST {{host}}/users/login
-Content-Type: application/json
-X-Requested-With: XMLHttpRequest
 
-{
-    "user": {
-        "email": "{{email}}",
-        "password": "{{password}}"
-    }
-}
 
-### Current User
+### Current User - 현재 사용자 조회
+### Response : User
 GET {{host}}/user
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest
 Authorization: Token {{token}}
 
-### Update User
+
+
+### Update User - 현재 사용자 수정
+### Response : User
 PUT {{host}}/user
 Content-Type: application/json
 X-Requested-With: XMLHttpRequest
@@ -38,6 +48,8 @@ Authorization: Token {{token}}
 {
     "user": {
         "email": "{{update-email}}",
+        "password": null,
+        "username": null,
         "bio": "{{update-bio}}",
         "image": "{{update-image}}"
     }
