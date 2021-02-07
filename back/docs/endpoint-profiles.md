@@ -49,7 +49,7 @@
     "username": "jake",
     "bio": "I work at statefarm",
     "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
-    "following": false
+    "following": true
   }
 }
 ```
