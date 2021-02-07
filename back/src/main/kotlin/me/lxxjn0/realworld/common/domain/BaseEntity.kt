@@ -1,4 +1,4 @@
-package me.lxxjn0.realworld.comment.domain
+package me.lxxjn0.realworld.common.domain
 
 import java.time.LocalDateTime
 
