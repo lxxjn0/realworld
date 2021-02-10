@@ -15,3 +15,8 @@ data class ArticleResponse(
     var favoritesCount: Int?,
     var author: ProfileResponse?
 )
+
+data class ArticlesResponse(
+    var articles: List<ArticleResponse>?,
+    var articlesCount: Long?
+)
