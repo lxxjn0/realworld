@@ -31,7 +31,7 @@ class Article(
         private set
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "author")
+    @JoinColumn(name = "author_id")
     var author: User = author
         private set
 }

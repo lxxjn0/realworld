@@ -13,7 +13,7 @@ class User(
 ) : BaseEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "user_id")
     var id: Long? = null
         private set
 
