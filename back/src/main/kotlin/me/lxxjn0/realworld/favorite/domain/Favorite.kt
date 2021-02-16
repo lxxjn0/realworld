@@ -7,19 +7,16 @@ import javax.persistence.*
 @Entity
 @Table(name = "favorite")
 class Favorite(
-    user: User,
-    article: Article,
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    val user: User,
+
+    @ManyToOne
+    @JoinColumn(name = "article_id")
+    val article: Article,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "favorite_id")
-    var id: Long? = null
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    var user: User = user
-
-    @ManyToOne
-    @JoinColumn(name = "article_id")
-    var article: Article = article
+    val id: Long = 0L
 }

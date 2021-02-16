@@ -6,19 +6,16 @@ import javax.persistence.*
 @Entity
 @Table(name = "follow")
 class Follow(
-    user: User,
-    follower: User,
-) {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column("follow_id")
-    var id: Long? = null
-
     @ManyToOne
     @JoinColumn(name = "user_id")
-    var user: User = user
+    val user: User,
 
     @ManyToOne
     @JoinColumn(name = "follower_id")
-    var follower: User = user
+    val follower: User,
+) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "follow_id")
+    val id: Long = 0L
 }

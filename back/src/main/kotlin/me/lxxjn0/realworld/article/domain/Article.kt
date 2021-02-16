@@ -5,33 +5,36 @@ import me.lxxjn0.realworld.user.domain.User
 import javax.persistence.*
 
 @Entity
+@Table(name = "article")
 class Article(
-    slug: String,
-    title: String,
-    description: String,
-    body: String,
-    author: User
-) : BaseEntity() {
-    @Id
-    @Column(name = "slug")
-    var slug: String = slug
-        private set
-
     @Column(name = "title")
-    var title: String = title
-        private set
+    val title: String,
 
     @Column(name = "description")
-    var description: String = description
-        private set
+    val description: String,
 
     @Lob
     @Column(name = "body")
-    var body: String = body
-        private set
+    val body: String,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
-    var author: User = author
-        private set
+    val author: User,
+) : BaseEntity() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "article_id")
+    val id: Long = 0L
+
+    @Column(name = "slug")
+    val slug: String = parseSlug(title)
+
+    private fun parseSlug(title: String) =
+        title.replace(regex = whitespaceRegex, replacement = SLUG_DELIMITER)
+
+    companion object {
+        private const val SLUG_DELIMITER = "-"
+
+        private val whitespaceRegex = Regex("""\s""")
+    }
 }

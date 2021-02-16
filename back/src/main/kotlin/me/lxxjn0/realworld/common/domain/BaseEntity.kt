@@ -7,15 +7,13 @@ import javax.persistence.Column
 import javax.persistence.MappedSuperclass
 
 @MappedSuperclass
-abstract class BaseEntity {
+abstract class BaseEntity(
     @CreatedDate
     @Column(name = "created_at")
-    lateinit var createdAt: LocalDateTime
-        protected set
+    val createdAt: LocalDateTime = LocalDateTime.now(),
 
     @CreatedDate
     @LastModifiedDate
     @Column(name = "updated_at")
-    lateinit var updatedAt: LocalDateTime
-        protected set
-}
+    val updatedAt: LocalDateTime = LocalDateTime.now(),
+)
