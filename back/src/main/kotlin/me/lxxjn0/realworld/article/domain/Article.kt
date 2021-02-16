@@ -21,6 +21,7 @@ class Article(
     @JoinColumn(name = "author_id")
     val author: User,
 ) : BaseEntity() {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "article_id")
@@ -37,4 +38,5 @@ class Article(
 
         private val whitespaceRegex = Regex("""\s""")
     }
+
 }

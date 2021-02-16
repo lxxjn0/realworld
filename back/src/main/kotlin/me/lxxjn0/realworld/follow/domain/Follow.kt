@@ -14,8 +14,10 @@ class Follow(
     @JoinColumn(name = "follower_id")
     val follower: User,
 ) {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "follow_id")
     val id: Long = 0L
+
 }

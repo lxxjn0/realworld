@@ -15,6 +15,7 @@ data class ArticleResponse(
     val favoritesCount: Long,
     val author: ProfileResponse,
 ) {
+
     constructor(
         article: Article,
         tags: List<String>,
@@ -38,6 +39,7 @@ data class ArticleResponse(
             following = following
         )
     )
+
 }
 
 data class ArticlesResponse(

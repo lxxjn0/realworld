@@ -16,6 +16,7 @@ class ArticleService(
     private val articleTagRepository: ArticleTagRepository,
     private val followRepository: FollowRepository,
 ) {
+
     fun show(loginUser: User?, slug: String): ArticleResponse {
         val article = articleRepository.findBySlug(slug)
             ?: throw IllegalArgumentException("존재하지 않는 게시글입니다. slug : $slug")
@@ -36,4 +37,5 @@ class ArticleService(
             following = following
         )
     }
+
 }

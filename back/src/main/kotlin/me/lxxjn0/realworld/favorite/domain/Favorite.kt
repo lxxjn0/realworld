@@ -15,8 +15,10 @@ class Favorite(
     @JoinColumn(name = "article_id")
     val article: Article,
 ) {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "favorite_id")
     val id: Long = 0L
+
 }

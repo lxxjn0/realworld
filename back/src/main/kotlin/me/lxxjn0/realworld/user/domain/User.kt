@@ -21,8 +21,10 @@ class User(
     @Column(name = "image")
     val image: String,
 ) : BaseEntity() {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    var id: Long = 0L
+    val id: Long = 0L
+
 }

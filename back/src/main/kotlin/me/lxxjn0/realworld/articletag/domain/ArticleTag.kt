@@ -5,17 +5,19 @@ import me.lxxjn0.realworld.tag.domain.Tag
 import javax.persistence.*
 
 @Entity
-class ArticleTag(article: Article, tag: Tag) {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "article_tag_id")
-    var id: Long? = null
-
+class ArticleTag(
     @ManyToOne
     @JoinColumn(name = "article_id")
-    var article: Article = article
+    val article: Article,
 
     @ManyToOne
     @JoinColumn(name = "tag_id")
-    var tag: Tag = tag
+    val tag: Tag,
+) {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "article_tag_id")
+    val id: Long = 0L
+
 }
