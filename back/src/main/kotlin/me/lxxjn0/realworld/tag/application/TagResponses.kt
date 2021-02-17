@@ -1,3 +1,3 @@
 package me.lxxjn0.realworld.tag.application
 
-data class TagsResponse(var tags: List<String>?)
+data class TagsResponse(val tags: List<String>)
