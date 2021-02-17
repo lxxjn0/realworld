@@ -8,14 +8,14 @@ import javax.persistence.*
 @Table(name = "article")
 class Article(
     @Column(name = "title")
-    val title: String,
+    var title: String,
 
     @Column(name = "description")
-    val description: String,
+    var description: String,
 
     @Lob
     @Column(name = "body")
-    val body: String,
+    var body: String,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
@@ -27,7 +27,20 @@ class Article(
     val id: Long = 0L
 
     @Column(name = "slug")
-    val slug: String = parseSlug(title)
+    var slug: String
+
+    init {
+        this.slug = parseSlug(title)
+    }
+
+    fun update(title: String?, description: String?, body: String?) {
+        title?.let {
+            this.title = it
+            this.slug = parseSlug(it)
+        }
+        description?.let { this.description = it }
+        body?.let { this.body = body }
+    }
 
     private fun parseSlug(title: String) =
         title.replace(regex = whitespaceRegex, replacement = SLUG_DELIMITER)
