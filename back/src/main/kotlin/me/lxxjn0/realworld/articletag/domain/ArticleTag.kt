@@ -14,10 +14,12 @@ class ArticleTag(
     @JoinColumn(name = "tag_id")
     val tag: Tag,
 ) {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "article_tag_id")
     val id: Long = 0L
 
+    override fun toString(): String {
+        return "ArticleTag(article=$article, tag=$tag, id=$id)"
+    }
 }
