@@ -15,19 +15,18 @@ data class ArticleResponse(
     val favoritesCount: Long,
     val author: ProfileResponse,
 ) {
-
     constructor(
         article: Article,
-        tags: List<String>,
-        favorited: Boolean,
-        favoritesCount: Long,
-        following: Boolean,
+        tagNames: List<String>,
+        favorited: Boolean = false,
+        favoritesCount: Long = 0L,
+        following: Boolean = false,
     ) : this(
         slug = article.slug,
         title = article.title,
         description = article.description,
         body = article.body,
-        tagList = tags,
+        tagList = tagNames,
         createdAt = article.createdAt.toString(),
         updatedAt = article.updatedAt.toString(),
         favorited = favorited,
@@ -39,7 +38,6 @@ data class ArticleResponse(
             following = following
         )
     )
-
 }
 
 data class ArticlesResponse(

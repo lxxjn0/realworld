@@ -15,21 +15,27 @@ import org.springframework.web.bind.annotation.*
 class ArticleController(
     private val articleService: ArticleService,
 ) {
-
     @PostMapping
-    fun createArticle(loginUser: User, @RequestBody request: CreateArticleRequest) {
+    fun createArticle(
+        loginUser: User,
+        @RequestBody request: CreateArticleRequest,
+    ): ResponseEntity<ArticleResponse> {
+        log.info("[ArticleController] 게시글 생성 요청 - url : {}, user : {}, request : {}",
+            URL, loginUser.username, request)
+        return ResponseEntity.ok(articleService.create(loginUser, request))
     }
 
     @GetMapping(value = ["/{slug}"])
-    fun showArticle(loginUser: User?, @PathVariable slug: String): ResponseEntity<ArticleResponse> {
-        log.info("[ArticleController] 게시글 조회 | url : $URL/$slug, user : ${loginUser?.username}")
+    fun showArticle(
+        loginUser: User?,
+        @PathVariable slug: String,
+    ): ResponseEntity<ArticleResponse> {
+        log.info("[ArticleController] 게시글 조회 요청 - url : {}, user : {}", "$URL/$slug",
+            loginUser?.username)
         return ResponseEntity.ok(articleService.show(loginUser, slug))
     }
 
     companion object {
-
         const val URL = "/api/articles"
-
     }
-
 }
