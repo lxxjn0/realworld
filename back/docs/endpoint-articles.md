@@ -154,7 +154,7 @@
 }
 ```
 
-## ~~Get Article - 게시글 조회~~ (완료)
+## Get Article - 게시글 조회 (완료)
 
 ### Url
 
@@ -195,7 +195,7 @@
 }
 ```
 
-## ~~Create Article - 게시글 생성~~ (완료)
+## Create Article - 게시글 생성 (완료)
 
 ### Url
 
@@ -253,7 +253,7 @@
 }
 ```
 
-## ~~Update Article - 게시글 수정~~ (완료)
+## Update Article - 게시글 수정 (완료)
 
 ### Url
 
@@ -306,7 +306,7 @@
 }
 ```
 
-## Delete Article : 게시글 삭제
+## Delete Article : 게시글 삭제 (완료)
 
 ### Url
 
@@ -487,5 +487,3 @@
   }
 }
 ```
-
-###        

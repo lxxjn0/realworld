@@ -47,6 +47,16 @@ class ArticleController(
         return ResponseEntity.ok(articleService.update(loginUser, slug, request))
     }
 
+    @DeleteMapping(value = ["/{slug}"])
+    fun delete(loginUser: User, @PathVariable slug: String): ResponseEntity<Void> {
+        log.info("[ArticleController] 게시글 수정 요청 - url : {}, user : {}", "$URL/$slug",
+            loginUser.username)
+        articleService.delete(loginUser, slug)
+
+        return ResponseEntity.noContent()
+            .build()
+    }
+
     companion object {
         const val URL = "/api/articles"
     }

@@ -39,7 +39,7 @@ class ArticleService(
     @Transactional(readOnly = true)
     fun show(loginUser: User?, slug: String): ArticleResponse {
         val article = articleRepository.findBySlug(slug)
-            ?: throw IllegalArgumentException("존재하지 않는 게시글입니다 - slug : $slug")
+            ?: throw IllegalArgumentException("[ArticleService] 존재하지 않는 게시글입니다 - slug : $slug")
         val favoritesCount = favoriteRepository.countAllByArticle(article)
         val tagNames = articleTagRepository.findAllByArticle(article)
             .map { it.tag.name }
@@ -58,7 +58,7 @@ class ArticleService(
     @Transactional
     fun update(loginUser: User, slug: String, request: ArticleUpdateRequest): ArticleResponse {
         val persistArticle = articleRepository.findBySlug(slug)
-            ?: throw IllegalArgumentException("존재하지 않는 게시글입니다 - slug : $slug")
+            ?: throw IllegalArgumentException("[ArticleService] 존재하지 않는 게시글입니다 - slug : $slug")
         val tagNames = articleTagRepository.findAllByArticle(persistArticle)
             .map { it.tag.name }
 
@@ -66,5 +66,18 @@ class ArticleService(
         log.info("[ArticleService] 게시글 수정 - article : {}", persistArticle)
 
         return ArticleResponse(persistArticle, tagNames)
+    }
+
+    @Transactional
+    fun delete(loginUser: User, slug: String) {
+        val article = articleRepository.findBySlug(slug)
+            ?: throw IllegalArgumentException("[ArticleService] 존재하지 않는 게시글입니다 - slug : $slug")
+
+        if (article.author != loginUser) {
+            throw IllegalStateException("[ArticleService] 게시글 작성자와 로그인 유저가 일치하지 않습니다.")
+        }
+
+        articleRepository.delete(article)
+        log.info("[ArticleService] 게시글 수정 - article : {}", article)
     }
 }
