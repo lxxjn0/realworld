@@ -4,8 +4,8 @@ import me.lxxjn0.realworld.article.domain.Article
 import me.lxxjn0.realworld.article.domain.ArticleRepository
 import me.lxxjn0.realworld.articletag.application.ArticleTagService
 import me.lxxjn0.realworld.articletag.domain.ArticleTagRepository
-import me.lxxjn0.realworld.comment.config.Slf4j
-import me.lxxjn0.realworld.comment.config.Slf4j.Companion.log
+import me.lxxjn0.realworld.common.config.Slf4j
+import me.lxxjn0.realworld.common.config.Slf4j.Companion.log
 import me.lxxjn0.realworld.favorite.domain.FavoriteRepository
 import me.lxxjn0.realworld.follow.domain.FollowRepository
 import me.lxxjn0.realworld.tag.application.TagService

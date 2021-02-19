@@ -3,8 +3,8 @@ package me.lxxjn0.realworld.articletag.application
 import me.lxxjn0.realworld.article.domain.Article
 import me.lxxjn0.realworld.articletag.domain.ArticleTag
 import me.lxxjn0.realworld.articletag.domain.ArticleTagRepository
-import me.lxxjn0.realworld.comment.config.Slf4j
-import me.lxxjn0.realworld.comment.config.Slf4j.Companion.log
+import me.lxxjn0.realworld.common.config.Slf4j
+import me.lxxjn0.realworld.common.config.Slf4j.Companion.log
 import me.lxxjn0.realworld.tag.domain.Tag
 import org.springframework.stereotype.Service
 

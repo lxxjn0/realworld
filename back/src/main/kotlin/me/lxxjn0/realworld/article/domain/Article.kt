@@ -17,7 +17,7 @@ class Article(
     @Column(name = "body")
     var body: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
     val author: User,
 ) : BaseEntity() {

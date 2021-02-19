@@ -4,15 +4,15 @@ import me.lxxjn0.realworld.article.application.ArticleCreateRequest
 import me.lxxjn0.realworld.article.application.ArticleResponse
 import me.lxxjn0.realworld.article.application.ArticleService
 import me.lxxjn0.realworld.article.application.ArticleUpdateRequest
-import me.lxxjn0.realworld.comment.config.Slf4j
-import me.lxxjn0.realworld.comment.config.Slf4j.Companion.log
+import me.lxxjn0.realworld.common.config.Slf4j
+import me.lxxjn0.realworld.common.config.Slf4j.Companion.log
 import me.lxxjn0.realworld.user.domain.User
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @Slf4j
 @RestController
-@RequestMapping(ArticleController.URL)
+@RequestMapping(value = [ArticleController.URL])
 class ArticleController(
     private val articleService: ArticleService,
 ) {

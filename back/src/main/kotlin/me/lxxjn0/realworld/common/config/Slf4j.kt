@@ -1,4 +1,4 @@
-package me.lxxjn0.realworld.comment.config
+package me.lxxjn0.realworld.common.config
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -6,12 +6,8 @@ import org.slf4j.LoggerFactory
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class Slf4j() {
-
     companion object {
-
         inline val <reified T> T.log: Logger
             get() = LoggerFactory.getLogger(T::class.java)
-
     }
-
 }
