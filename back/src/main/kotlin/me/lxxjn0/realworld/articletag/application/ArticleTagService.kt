@@ -11,20 +11,15 @@ import org.springframework.stereotype.Service
 @Slf4j
 @Service
 class ArticleTagService(private val articleTagRepository: ArticleTagRepository) {
-    fun create(article: Article, tag: Tag): ArticleTag {
-        val articleTag = ArticleTag(article, tag)
-            .also { articleTagRepository.save(it) }
+    fun create(article: Article, tag: Tag) =
+        ArticleTag(article, tag).also { articleTagRepository.save(it) }
+            .also { log.info("[ArticleTagService] 게시글 태그 생성 - articleTag : {}", it) }
 
-        log.info("[ArticleTagService] 게시글 태그 생성 - articleTag : {}", articleTag)
-        return articleTag
-    }
-
-    fun createAllByTags(article: Article, tags: List<Tag>): List<ArticleTag> {
-        val articleTags = tags.map { ArticleTag(article, it) }
+    fun createAllByTags(article: Article, tags: List<Tag>) =
+        tags.map { ArticleTag(article, it) }
             .also { articleTagRepository.saveAll(it) }
-
-        log.info("[ArticleTagService] 전체 게시글 태그 생성 - articleTags size : {}, articleTags : {}",
-            articleTags.size, articleTags)
-        return articleTags
-    }
+            .also {
+                log.info("[ArticleTagService] 전체 게시글 태그 생성 - articleTags size : {}, articleTags : {}",
+                    it.size, it)
+            }
 }

@@ -28,6 +28,7 @@ class ArticleService(
         val article = Article(request.title, request.description, request.body, loginUser)
             .also { articleRepository.save(it) }
         log.info("[ArticleService] 게시글 생성 - article : {}", article)
+
         val tags = request.tagList
             ?.let { tagService.createAllByNames(it) }
             ?: emptyList()
@@ -48,10 +49,9 @@ class ArticleService(
             loginUser?.let { followRepository.existsByUserAndFollower(article.author, it) }
                 ?: false
 
-        val response = ArticleResponse(article, tagNames, favorited, favoritesCount, following)
-        log.info("[ArticleService] 게시글 조회 - article : {}", response)
-
-        return response
+        return ArticleResponse(article, tagNames, favorited, favoritesCount, following).also {
+            log.info("[ArticleService] 게시글 조회 - article : {}", it)
+        }
     }
 
     fun showBySlug(slug: String) = articleRepository.findBySlug(slug)

@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service
 class TagService(
     private val tagRepository: TagRepository,
 ) {
-    fun createAllByNames(tagNames: List<String>): List<Tag> {
-        val tags = tagNames.map { tagRepository.findByName(it) ?: tagRepository.save(Tag(it)) }
-        log.info("[TagService] 전체 태그 생성 - size : {}, tags : {}", tags.size, tags)
-
-        return tags
-    }
+    fun createAllByNames(tagNames: List<String>) =
+        tagNames.map { tagRepository.findByName(it) ?: tagRepository.save(Tag(it)) }
+            .also { log.info("[TagService] 전체 태그 생성 - size : {}, tags : {}", it.size, it) }
 }
