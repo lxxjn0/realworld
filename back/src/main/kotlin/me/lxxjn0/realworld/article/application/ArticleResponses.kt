@@ -1,7 +1,9 @@
 package me.lxxjn0.realworld.article.application
 
 import me.lxxjn0.realworld.article.domain.Article
+import me.lxxjn0.realworld.common.application.BaseResponse
 import me.lxxjn0.realworld.user.application.ProfileResponse
+import java.time.LocalDateTime
 
 data class ArticleResponse(
     val slug: String,
@@ -9,12 +11,12 @@ data class ArticleResponse(
     val description: String,
     val body: String,
     val tagList: List<String>,
-    val createdAt: String,
-    val updatedAt: String,
+    override val createdAt: LocalDateTime,
+    override val updatedAt: LocalDateTime,
     val favorited: Boolean,
     val favoritesCount: Long,
     val author: ProfileResponse,
-) {
+) : BaseResponse(createdAt, updatedAt) {
     constructor(
         article: Article,
         tagNames: List<String>,
@@ -27,8 +29,8 @@ data class ArticleResponse(
         description = article.description,
         body = article.body,
         tagList = tagNames,
-        createdAt = article.createdAt.toString(),
-        updatedAt = article.updatedAt.toString(),
+        createdAt = article.createdAt,
+        updatedAt = article.updatedAt,
         favorited = favorited,
         favoritesCount = favoritesCount,
         author = ProfileResponse(

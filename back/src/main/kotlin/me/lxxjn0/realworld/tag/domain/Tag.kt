@@ -3,6 +3,7 @@ package me.lxxjn0.realworld.tag.domain
 import javax.persistence.*
 
 @Entity
+@Table(name = "tag")
 class Tag(
     @Column(name = "name")
     val name: String,

@@ -27,4 +27,8 @@ class User(
     @Column(name = "user_id")
     val id: Long = 0L
 
+    override fun toString(): String {
+        return "User(email='$email', password='$password', username='$username', bio='$bio', " +
+                "image='$image', id=$id)"
+    }
 }

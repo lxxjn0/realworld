@@ -22,7 +22,7 @@ class ArticleController(
         @RequestBody request: ArticleCreateRequest,
     ): ResponseEntity<ArticleResponse> {
         log.info("[ArticleController] 게시글 생성 요청 - url : {}, user : {}, request : {}", URL,
-            loginUser.username, request)
+            loginUser, request)
         return ResponseEntity.ok(articleService.create(loginUser, request))
     }
 
@@ -31,8 +31,7 @@ class ArticleController(
         loginUser: User?,
         @PathVariable slug: String,
     ): ResponseEntity<ArticleResponse> {
-        log.info("[ArticleController] 게시글 조회 요청 - url : {}, user : {}", "$URL/$slug",
-            loginUser?.username)
+        log.info("[ArticleController] 게시글 조회 요청 - url : {}, user : {}", "$URL/$slug", loginUser)
         return ResponseEntity.ok(articleService.show(loginUser, slug))
     }
 
@@ -43,14 +42,13 @@ class ArticleController(
         request: ArticleUpdateRequest,
     ): ResponseEntity<ArticleResponse> {
         log.info("[ArticleController] 게시글 수정 요청 - url : {}, user : {}, request : {}",
-            "$URL/$slug", loginUser.username, request)
+            "$URL/$slug", loginUser, request)
         return ResponseEntity.ok(articleService.update(loginUser, slug, request))
     }
 
     @DeleteMapping(value = ["/{slug}"])
     fun delete(loginUser: User, @PathVariable slug: String): ResponseEntity<Void> {
-        log.info("[ArticleController] 게시글 수정 요청 - url : {}, user : {}", "$URL/$slug",
-            loginUser.username)
+        log.info("[ArticleController] 게시글 수정 요청 - url : {}, user : {}", "$URL/$slug", loginUser)
         articleService.delete(loginUser, slug)
 
         return ResponseEntity.noContent()
