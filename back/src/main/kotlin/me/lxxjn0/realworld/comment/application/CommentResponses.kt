@@ -27,4 +27,10 @@ data class CommentResponse(
             following = following,
         )
     )
+
+    fun updateFollowing(following: Boolean) {
+        this.author.following = following
+    }
 }
+
+data class CommentsResponse(val comments: List<CommentResponse>)
